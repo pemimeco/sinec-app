@@ -29,9 +29,15 @@
         <input type="text" name="fec_nacimiento" value="<%= typeof fec_nac != 'undefined' ? fec_nac : '' %>"
             disabled><br>
         Tipo de Sangre:
-        <input type="text" name="tipo_sangre"><button name="btnBuscar" type="button" name="regTipo">Registrar</button>
-        <br>
+        <input type="text" name="tipo_sangre" value="<%= typeof tipo_sangre != 'undefined' ? tipo_sangre : '' %>">
+        <button name="btnRegistrar" type="submit">Registrar</button> <br>
     </form>
+    <!-- <form action="/registrarTipoSangre" method="POST">
+        Tipo de Sangre:
+        <input type="text" name="tipo_sangre">
+        <button name="btnBuscar" type="submit" name="regTipo">Registrar</button>
+        <br>
+    </form> -->
 </body>
 
 </html>
