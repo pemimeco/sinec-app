@@ -4,32 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>HOME</title>
+    <title>Busqueda de Asegurados</title>
 </head>
 
 <body>
-    <form>
+    <form action="/buscarAsegurado" method="POST">
         <label>SINEC</label><br>
-        <input type="text" id="edtBuscar">
-        <button id="btnBuscar">Buscar</button>
+        <input type="text" name="edtBuscar" value="<%= typeof id != 'undefined' ? id : '' %>">
+        <button name="btnBuscar" type="submit">Buscar</button> <br>
+        <%= typeof message != 'undefined' ? message : '' %>
         <br><br>
         Nombres:
-        <input type="text" disabled><br>
+        <input type="text" name="nombre" value="<%= typeof nombre != 'undefined' ? nombre : '' %>" disabled><br>
         Apellidos:
-        <input type="text" disabled><br>
+        <input type="text" name="apellidos" value="<%= typeof apellido != 'undefined' ? apellido : '' %>" disabled><br>
         Empresa:
-        <input type="text" disabled><br>
+        <input type="text" name="empresa" value="<%= typeof empresa != 'undefined' ? empresa : '' %>" disabled><br>
         Fecha de Ingreso:
-        <input type="text" disabled><br>
+        <input type="text" name="fec_ingreso" value="<%= typeof fec_ing != 'undefined' ? fec_ing : '' %>" disabled><br>
         Nro. Matricula:
-        <input type="text" disabled><br>
+        <input type="text" name="nro_matricua" value="<%= typeof matricula != 'undefined' ? matricula : '' %>"
+            disabled><br>
         Fecha de Nacimiento:
-        <input type="text" disabled><br>
+        <input type="text" name="fec_nacimiento" value="<%= typeof fec_nac != 'undefined' ? fec_nac : '' %>"
+            disabled><br>
         Tipo de Sangre:
-        <input type="text" disabled><br>
+        <input type="text" name="tipo_sangre"><button name="btnBuscar" type="button" name="regTipo">Registrar</button>
+        <br>
     </form>
 </body>
 
