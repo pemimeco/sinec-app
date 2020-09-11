@@ -39,7 +39,7 @@ async function obtenerUnAsegurado(req, res, next) {
 
 async function obtenerInfoAsegurado(req, res, next) {
     if (req.body.btnBuscar != undefined) { //click en buscar
-        await renderDatos(req, res, next)
+        await renderDatos(req, res, next, "")
     }
     if (req.body.btnRegistrar != undefined) { //click en registrar
         await sql.connect(sqlConfig, (err) => {
@@ -52,10 +52,10 @@ async function obtenerInfoAsegurado(req, res, next) {
                     console.log(err)
                 }
                 const response = result.rowsAffected[0]
-                if (response > 0) {
-                    renderDatos(req, res, next) //cargo los datos de nuevo
-                } else {
-                    renderDatos(req, res, next) //cargo los datos de nuevo
+                if (response > 0) { // 1 fila afectada = actualizacion exitosa
+                    renderDatos(req, res, next, "Registro Exitoso") //cargo los datos de nuevo
+                } else { // 0 filas afectadas = no se actualizo
+                    renderDatos(req, res, next, "") //cargo los datos de nuevo
                 }
                 console.log(response)
             });
@@ -63,7 +63,7 @@ async function obtenerInfoAsegurado(req, res, next) {
     }
 }
 
-async function renderDatos(req, res, next) {
+async function renderDatos(req, res, next, text) {
     await sql.connect(sqlConfig, (err) => {
         if (err) {
             console.log(err)
@@ -83,7 +83,7 @@ async function renderDatos(req, res, next) {
             }
             if (response != undefined) {
                 res.render('index', {
-                    message: 'Usuario Obtenido',
+                    message: text,
                     id: req.body.edtBuscar,
                     nombre: response.name,
                     apellido: response.name,

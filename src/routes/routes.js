@@ -6,8 +6,18 @@ const users = require('../queries/users');
 
 
 //-------------ROUTES-------------------
+router.get('/', (req, res, next) => {
+    res.render('menu');
+});
 router.get('/buscarAsegurado', (req, res, next) => {
-    res.render('index');
+    res.render('index', {
+        menu_active: 'active'
+    });
+});
+router.get('/test', (req, res, next) => {
+    res.render('test', {
+        menu_active2: 'active'
+    });
 });
 router.post('/buscarAsegurado', users.obtenerInfoAsegurado);
 

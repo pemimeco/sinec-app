@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<% include resources.ejs %>
+
+<body>
+    <nav>
+        <div class="nav-wrapper teal lighten-2">
+            <ul class="left hide-on-med-and-down">
+                <li class="<%= typeof menu_active != 'undefined' ? menu_active : '' %>"><a
+                        onclick="location.href = '/buscarAsegurado'"><i class="material-icons left">search</i>Buscar
+                        Persona</a></li>
+                <li class="<%= typeof menu_active2 != 'undefined' ? menu_active2 : '' %>"><a
+                        onclick="location.href = '/test'"><i class="material-icons left">view_module</i>test</a>
+                </li>
+            </ul>
+            <a href="/" class="right brand-logo">SINEC</a>
+        </div>
+    </nav>
+</body>
+
+</html>
